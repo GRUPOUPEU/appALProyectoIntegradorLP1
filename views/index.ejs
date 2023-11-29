@@ -188,183 +188,267 @@
   <!-- Fin Navbar -->
 
 
-  <!-- inicio slider -->
-  <div>
-    <div id="carouselExampleCaptions" class="relative " data-te-carousel-init data-te-ride="carousel">
-      <!--Carousel indicators-->
-      <div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
-        data-te-carousel-indicators>
-        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="0" data-te-carousel-active
-          class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity  duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="1"
-          class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-          aria-label="Slide 2"></button>
-        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="2"
-          class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-          aria-label="Slide 3"></button>
+  <!-- Inicio Video Carrusel -->
+  <div
+  id="carouselExampleCaptionsFull"
+  class="relative"
+  data-te-carousel-init
+  data-te-ride="carousel">
+  <div
+    class="absolute inset-x-0 bottom-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+    data-te-carousel-indicators>
+    <button
+      type="button"
+      data-te-target="#carouselExampleCaptionsFull"
+      data-te-slide-to="0"
+      data-te-carousel-active
+      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+      aria-current="true"
+      aria-label="Slide 1"></button>
+    <button
+      type="button"
+      data-te-target="#carouselExampleCaptionsFull"
+      data-te-slide-to="1"
+      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+      aria-label="Slide 2"></button>
+    <button
+      type="button"
+      data-te-target="#carouselExampleCaptionsFull"
+      data-te-slide-to="2"
+      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+      aria-label="Slide 3"></button>
+  </div>
+  <div
+    class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+    <div
+      class="relative float-left -mr-[100%] hidden w-full !transform-none bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-te-carousel-fade
+      data-te-carousel-item
+      data-te-carousel-active>
+      <video class="" playsinline autoplay muted loop style="width: 100%;">
+        <source
+          class=""
+          src="/video/naturemueble.mp4"
+          type="video/mp4" />
+      </video>
+      <div
+        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed"
+        style="background-color: rgba(0, 0, 0, 0.6)">
+        <div class="flex h-full items-center justify-center">
+          <div class="px-md-0 px-14 text-center text-white">
+            <h2 class="mb-4 text-3xl font-semibold">Estilo para tu hogar</h2>
+            <h5 class="mb-6 text-lg font-semibold">
+              Encuentra muebles únicos y elegantes para darle estilo a tu hogar
+            </h5>
+            <div class="md:space-x-2">
+              <a
+                type="button"
+                class="mb-2 inline-block rounded border-2 border-white px-6 py-2 text-xs font-medium uppercase leading-tight text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 md:mb-0"
+                href="/catalogo"
+                role="button"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                >Ver Catalogos</a
+              >
+              
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!--Carousel items-->
-      <div class="relative w-full  overflow-hidden after:clear-both after:block after:content-['']">
-        <!--First item-->
-        <div
-          class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-          data-te-carousel-active data-te-carousel-item style="backface-visibility: hidden">
-          <img src="/images/carusel01.jpg" class="block w-full" alt="..." />
-          <div
-            class="absolute inset-x-[15%]  bottom-14  hidden py-5 text-center text-white md:block  bg-gray-900 bg-opacity-60 ">
-
-            <h5 class="text-4xl ">MUEBLERIA</h5>
-            <p class="text-2xl">
-              Los detalles no son solo detalles Ellos hacen el diseño
-            </p>
-
-          </div>
-        </div>
-        <!--Second item-->
-        <div
-          class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-          data-te-carousel-item style="backface-visibility: hidden">
-          <img src="/images/carusel02.jpg" class="block w-full" alt="..." />
-          <div
-            class="absolute inset-x-[15%]  bottom-14  hidden py-5 text-center text-white md:block  bg-gray-900 bg-opacity-60 ">
-
-            <h5 class="text-4xl ">mobiliario</h5>
-            <p class="text-2xl">
-              Un diseño, un estilo, un descanso, un mueble te lo podrá decir ¡Vive sin límites!
-            </p>
-
-          </div>
-        </div>
-        <!--Third item-->
-        <div
-          class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-          data-te-carousel-item style="backface-visibility: hidden">
-          <img src="/images/carusel03.jpg" class="block w-full" alt="..." />
-          <div
-            class="absolute inset-x-[15%]  bottom-14  hidden py-5 text-center text-white md:block  bg-gray-900 bg-opacity-60 ">
-
-            <h5 class="text-4xl ">First slide label</h5>
-            <p class="text-2xl">
-              Some representative placeholder content for the first slide.
-            </p>
-
+    </div>
+    <div
+      class="relative float-left -mr-[100%] hidden w-full !transform-none bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-te-carousel-fade
+      data-te-carousel-item>
+      <video class="" playsinline autoplay muted loop style="width: 100%;">
+        <source
+          class=""
+          src="/video/bedroom.mp4"
+          type="video/mp4" />
+      </video>
+      <div
+        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed"
+        style="background-color: rgba(0, 0, 0, 0.3)">
+        <div class="flex h-full items-center justify-center">
+          <div class="px-md-0 px-14 text-center text-white">
+            <h2 class="mb-4 text-3xl font-semibold">Diseños modernos, espacios perfectos</h2>
           </div>
         </div>
       </div>
-
-      <!--Carousel controls - prev item-->
-      <button
-        class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
-        type="button" data-te-target="#carouselExampleCaptions" data-te-slide="prev">
-        <span class="inline-block h-8 w-8">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="h-6 w-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-        </span>
-        <span
-          class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
-      </button>
-      <!--Carousel controls - next item-->
-      <button
-        class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
-        type="button" data-te-target="#carouselExampleCaptions" data-te-slide="next">
-        <span class="inline-block h-8 w-8">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="h-6 w-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg>
-        </span>
-        <span
-          class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
-      </button>
+    </div>
+    <div
+      class="relative float-left -mr-[100%] hidden w-full !transform-none bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-te-carousel-fade
+      data-te-carousel-item>
+      <video class="" playsinline autoplay muted loop style="width: 100%;">
+        <source
+          class=""
+          src="/video/comedor.mp4"
+          type="video/mp4" />
+      </video>
+      <div
+        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed">
+        <div class="flex h-full items-center justify-center">
+          <div class="px-md-0 px-14 text-center text-white">
+            <h2 class="mb-4 text-3xl font-semibold">
+              Calidad y comodidad en cada mueble
+            </h2>
+            <a
+              type="button"
+              class="inline-block rounded border-2 border-white px-6 py-2 text-xs font-medium uppercase leading-tight text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+              href="/contacto"
+              role="button"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+              >Contactenos</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <!-- fin slider -->
-
-  
+  <button
+    class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+    type="button"
+    data-te-target="#carouselExampleCaptionsFull"
+    data-te-slide="prev">
+    <span class="inline-block h-8 w-8">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="h-6 w-6">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+    </span>
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+      >Previous</span
+    >
+  </button>
+  <button
+    class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+    type="button"
+    data-te-target="#carouselExampleCaptionsFull"
+    data-te-slide="next">
+    <span class="inline-block h-8 w-8">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="h-6 w-6">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </span>
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+      >Next</span
+    >
+  </button>
+</div>
+  <!-- FIN VIdeo Carrusel-->
+    
 
   <!-- Productos en promocion -->
-  <div class="entry-content" style="background-color: white;">
-    <div>
-      <h1 class="font-bold text-center text-3xl my-6">Productos En Promocion</h1>
-    </div>
-    <div>
-      
-      <section class=" flex mx-2 my-2 overflow-hidden rounded-lg shadow-2xl md:grid md:grid-cols-3" style="background-color: white; box-shadow: 0 4px 20px rgba(255, 0, 0, 0.5);"> 
-        <img alt="Trainer"
-          src="https://hipopotamo.com/wp-content/uploads/2018/09/vitrina-salon-cristal-aparador-mueble-tv-estilo-contemporaneo-295SA0101.jpg"
-          class="h-32 w-full object-cover md:h-full" />
-
-        <div class="p-2 text-center mx-6 sm:p-6 md:col-span-2 lg:p-8">
-          <p class="text-sm font-semibold uppercase tracking-widest">
-            Producto En promocion
-          </p>
-
-          <h2 class="mt-6 font-black uppercase">
-            <span class="text-4xl font-black sm:text-5xl lg:text-6xl">
-              Oferta al 20%
-            </span>
-
-            <span class="mt-2 block text-sm">Aproveche su Comprar </span>
-          </h2>
-          <p class="text-justify text-2xl font-bold">
-            muble de sala - producto Reciente
-          </p>
-          <p class="text-justify text-l font-sans">
-            Precio:
-          </p>
-          <p class="text-center text-6xl font-semibold"> 356$</p>
-          <p class="text-center text-1 font-semibold"> !pago en 12 coutas a solo 58$ por mes!</p>
-
-          <a href="/carrito"
-                        class="inline-block container shadow-lg pb-2 pt-2.5 text-center text-gray-300 font-bold border-2 bg-black border-gray-700 rounded-lg"
-                        onclick="addToCart(event)">
-                        Añadir al Carrito
-                    </a>
-
-                    <div id="cartNotification"
-                        style="display: none; position: fixed; top: 20px; right: 20px; background-color: #f7ede9; border: 1px solid #ffd0d0; border-radius: 8px; padding: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                        Se ha añadido al carrito.
-                        <a href="carrito" class="block px-4 py-2 text-sm text-yellow-500 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
-                            <img src="/images/carrito.png" alt="Icono" class="inline-block h-6 w-6 mr-2">
-                            <u>Ver mi carrito</u>
-                          </a>  
-                    </div>
-
-                    <script>
-                        function addToCart(event) {
-                            event.preventDefault();
-
-                            const button = event.target;
-
-                            const originalColor = button.style.backgroundColor;
-                            button.style.backgroundColor = 'brown';
-                            setTimeout(function () {
-                                button.style.backgroundColor = originalColor;
-                            }, 1000);
-
-                            const cartNotification = document.getElementById('cartNotification');
-
-                            // Mostrar la notificación
-                            cartNotification.style.display = 'block';
-
-                            // Ocultar la notificación después de 3 segundos
-                            setTimeout(function () {
-                                cartNotification.style.display = 'none';
-                            }, 3000);
-                        }
-                    </script>
-
-          <p class="mt-8 text-xs font-medium uppercase text-gray-400">
-            Para Ver Los Productos Selecionados Precione
-            click al Carrito de venta *
-          </p>
+  <div>
+    <section class="flex mx-2 my-2 overflow-hidden rounded-lg shadow-2xl md:grid md:grid-cols-3" style="background-color: white; box-shadow: 0 4px 20px rgba(255, 0, 0, 0.5);" onmouseover="hoverCard(true)" onmouseout="hoverCard(false)">
+      <img alt="Trainer" src="https://hipopotamo.com/wp-content/uploads/2018/09/vitrina-salon-cristal-aparador-mueble-tv-estilo-contemporaneo-295SA0101.jpg" class="h-32 w-full object-cover md:h-full" />
+      <div class="p-2 text-center mx-6 sm:p-6 md:col-span-2 lg:p-8">
+        <p class="text-sm font-semibold uppercase tracking-widest">
+          Producto En promocion
+        </p>
+        <h2 class="mt-6 font-black uppercase">
+          <span class="text-4xl font-black sm:text-5xl lg:text-6xl">
+            Oferta al 20%
+          </span>
+          <span class="mt-2 block text-sm">Aproveche esta Oferta </span>
+        </h2>
+        <p class="text-justify text-2xl font-bold">
+          Mueble de sala - producto Reciente
+        </p>
+        <p class="text-justify text-l font-sans">
+          Precio:
+        </p>
+        <p class="text-center text-6xl font-semibold"> 356$</p>
+        <p class="text-center text-1 font-semibold"> ¡Pago en 12 cuotas a solo 58$ por mes!</p>
+  
+        <a href="/carrito" class="inline-block container shadow-lg pb-2 pt-2.5 text-center text-gray-300 font-bold border-2 bg-black border-gray-700 rounded-lg" onclick="addToCart(event)">
+          Añadir al Carrito
+        </a>
+  
+        <div id="cartNotification" style="display: none; position: fixed; top: 20px; right: 20px; background-color: #f7ede9; border: 1px solid #ffd0d0; border-radius: 8px; padding: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          Se ha añadido al carrito.
+          <a href="carrito" class="block px-4 py-2 text-sm text-yellow-500 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">
+            <img src="/images/carrito.png" alt="Icono" class="inline-block h-6 w-6 mr-2">
+            <u>Ver mi carrito</u>
+          </a>
         </div>
-      </section>
+  
+        <p class="mt-8 text-xs font-medium uppercase text-gray-400">
+          Para Ver Los Productos Seleccionados Presione click al Carrito de venta *
+        </p>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Modal -->
+  <div id="myModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center;">
+    <div style="background: white; padding: 20px; border-radius: 8px; max-width: 600px; margin: 0 auto; position: relative;">
+      <span onclick="closeModal()" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">&times;</span>
+      <!-- Contenido del modal -->
+      <p>Contenido del modal aquí...</p>
     </div>
+  </div>
+  
+  <script>
+    function openModal() {
+      const modal = document.getElementById('myModal');
+      modal.style.display = 'flex';
+    }
+  
+    function closeModal() {
+      const modal = document.getElementById('myModal');
+      modal.style.display = 'none';
+    }
+  
+    function addToCart(event) {
+      event.preventDefault();
+  
+      const button = event.target;
+  
+      const originalColor = button.style.backgroundColor;
+      button.style.backgroundColor = 'brown';
+      setTimeout(function () {
+        button.style.backgroundColor = originalColor;
+      }, 1000);
+  
+      const cartNotification = document.getElementById('cartNotification');
+  
+      // Mostrar la notificación
+      cartNotification.style.display = 'block';
+  
+      // Ocultar la notificación después de 3 segundos
+      setTimeout(function () {
+        cartNotification.style.display = 'none';
+      }, 3000);
+    }
+  
+    function hoverCard(isHovered) {
+      const card = document.querySelector('.shadow-2xl'); // Puedes ajustar la clase según la estructura real
+      card.style.opacity = isHovered ? '0.8' : '1.0';
+    }
+  </script>
+    
     <!-- Fin de productos en promocion -->
 
     <h1 class="font-bold text-center text-white text-3xl my-6">Productos Recientes - Catalogo </h1>
