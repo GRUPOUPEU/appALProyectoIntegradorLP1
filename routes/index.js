@@ -78,6 +78,10 @@ router.get('/', function (req, res, next) {
         res.render('profile');
       });
 
+      router.get('/formulario', function (req, res, next) {
+        res.render('formulario');
+      });
+
 /* post dashboard page. */
 router.post('/dashboard', function (req, res, next) {
   email = req.body.email;

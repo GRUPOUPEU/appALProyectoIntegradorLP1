@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,
+  initial-scale=1.0" />
+  <meta name="theme-color" content="#4285f4" />
+  <link rel="shortcut icon" href="/images/logopagina.png">
+  <title>MUEBLERIA</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+
+
+<body>
+  <nav x-data="{ open: false }" style="background: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 106, 106));">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+
+          <!-- Mobile menu button-->
+          <button @click="open = ! open" type="button"
+            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black"
+            aria-controls="mobile-menu" aria-expanded="false">
+            <span class="absolute -inset-0.5"></span>
+            <span class="sr-only">Open main menu</span>
+            <!--
+                Icon when menu is closed.
+    
+                Menu open: "hidden", Menu closed: "block"
+              -->
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <!--
+                Icon when menu is open.
+    
+                Menu open: "block", Menu closed: "hidden"
+              -->
+            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+        </div>
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex flex-shrink-0 items-center">
+            <img class="h-14 w-auto duration-500" src="/images/logo2.png" alt="Your Company">
+
+          </div>
+          <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a href="/" class="hover:scale-125 duration-500 text-white rounded-md px-3 py-2 text-sm font-bold"
+                aria-current="page">
+                <b>Inicio</b></a>
+              <a href="/catalogo"
+                class="text-white hover:scale-125 duration-500 hover:text-gray-500 rounded-md px-3 py-2 text-sm">
+                Catalogo</a>
+              <a href="/servicio"
+                class="text-white hover:scale-125 duration-500 hover:text-gray-500 rounded-md px-3 py-2 text-sm">
+                Servicio</a>
+              <a href="/contacto"
+                class="text-white hover:scale-125 duration-500 hover:text-gray-500 rounded-md px-3 py-2 text-sm">
+                Contacto</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Barra de búsqueda con margen personalizado -->
+        <div class="flex items-center justify-end search-container animate-pulse" onclick="toggleAnimation(event)">
+          <input type="text" placeholder="Buscar..."
+            class="sm:flex-grow sm:flex-shrink-0 bg-gray-700 text-black px-4 py-2 rounded-2-md focus:outline-none"
+            style="background-color: #f5ebe1;">
+          <button class="sm:flex-grow-0 sm:flex-shrink-0 bg-blue-500 text-white px-4 py-2 rounded-r-md"
+            style="background-color: rgb(255, 136, 0);">Buscar</button>
+        </div>
+
+        <script>
+          function toggleAnimation(event) {
+            const searchContainer = document.querySelector('.search-container');
+            searchContainer.classList.toggle('animate-pulse');
+          }
+        </script>
+        <!-- fin busqueda -->
+
+        <!-- noticaciones -->
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <button type="button" class="relative rounded-full p-1 text-gray-400 hover:text-black focus:outline-none
+          relative flex rounded-full text-sm focus:outline-none transition duration-300 hover:ring hover:ring-yellow-300 p-1"
+            onclick="toggleCart(event)">
+            <span class="absolute -inset-1.5"></span>
+            <span class="sr-only">View notifications</span>
+            <img src="/images/notificacion.png" alt="Notificaciones" class="h-6 w-6">
+          </button>
+        </div>
+
+        <div id="cartWindow"
+          class="hidden absolute top-0 right-0 mt-12 bg-white border border-gray-200 rounded-lg shadow-lg p-4"
+          style="z-index: 9999;" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
+          tabindex="-1">
+          <a href="carrito" class="block px-4 py-2 text-sm text-yellow-500 hover:bg-gray-100" role="menuitem"
+            tabindex="-1" id="user-menu-item-0">
+            <img src="/images/carrito.png" alt="Icono" class="inline-block h-6 w-6 mr-2">
+            <u>Ver mi carrito</u>
+          </a>
+
+          <!-- Aquí puedes agregar el contenido de la mini ventana -->
+        </div>
+
+        <script>
+          function toggleCart(event) {
+            const cartWindow = document.getElementById('cartWindow');
+            cartWindow.classList.toggle('hidden');
+            event.stopPropagation();
+          }
+
+          document.addEventListener('click', function (event) {
+            const cartWindow = document.getElementById('cartWindow');
+            if (!cartWindow.contains(event.target)) {
+              cartWindow.classList.add('hidden');
+            }
+          });
+        </script>
+        <!-- fin notificaciones -->
+
+        <!-- Profile dropdown -->
+        <div x-data="{ open: false }" class="relative ml-3">
+
+          <div>
+            <button @click="open = !open" type="button"
+                class="relative flex rounded-full text-sm focus:outline-none transition duration-300 hover:ring hover:ring-yellow-300 p-1"
+                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">Open user menu</span>
+                <img class="h-6 w-6 rounded-none" src="/images/usuario-de-perfil.png" alt="">
+            </button>
+        </div>
+        
+        
+        
+        
+
+
+          <!--
+                Dropdown menu, show/hide based on menu state.
+    
+                Entering: "transition ease-out duration-100"
+                  From: "transform opacity-0 scale-95"
+                  To: "transform opacity-100 scale-100"
+                Leaving: "transition ease-in duration-75"
+                  From: "transform opacity-100 scale-100"
+                  To: "transform opacity-0 scale-95"
+              -->
+          <div x-show="open" @click.outside="open = false"
+            class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+            <a href="loginadmin" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
+              tabindex="-1" id="user-menu-item-0">Iniciar</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div x-show="open" class="sm:hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+          aria-current="page">Inicio</a>
+        <a href="#"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Catalogo</a>
+        <a href="#"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Servicio</a>
+        <a href="#"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contacto</a>
+      </div>
+    </div>
+  </nav>
+  <!-- Fin Navbar -->
+
+<div id="wsc-wrapper" class="wsc-no-modal">
+    <div class="wsc-inside">
+    <div class="wsc-row wsc-header">
+    <a class="wsc-prev" href="#">←</a>
+    <div id="wsc-progressbar"><div class="wsc-progress active" id="progress1" data-id="1">Paso 1</div><div class="wsc-progress" id="progress2" data-id="2">Paso 2</div><div class="wsc-progress" id="progress3" data-id="3">Paso 3</div></div>
+    </div>
+    <form name="checkout" method="post" class="checkout woocommerce-checkout" action="https://plazahome.pe/finalizar-compra/" enctype="multipart/form-data" id="checkout" novalidate="novalidate">
+    <section class="wsc-frame wsc-animated slideInLeft" style="display: block;" id="frame1">
+    <div class="wc_coupon_message_wrap" style="padding: 10px 0 10px;"></div>
+    <div class="wsc-row">
+    <div class="woocommerce-billing-fields">
+    <h3>Facturación y envío</h3>
+    <div class="woocommerce-billing-fields__field-wrapper">
+    <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-priority="10"><label for="billing_first_name" class="">Nombre&nbsp;<abbr class="required" title="obligatorio">*</abbr></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder="" value=""></span></p><p class="form-row form-row-last validate-required" id="billing_last_name_field" data-priority="20"><label for="billing_last_name" class="">Apellidos&nbsp;<abbr class="required" title="obligatorio">*</abbr></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_last_name" id="billing_last_name" placeholder="" value=""></span></p><p class="form-row form-row-wide validate-required validate-email" id="billing_email_field" data-priority="30"><label for="billing_email" class="">Dirección de correo electrónico&nbsp;<abbr class="required" title="obligatorio">*</abbr></label><span class="woocommerce-input-wrapper"><input type="email" class="input-text " name="billing_email" id="billing_email" placeholder="" value=""></span></p><p class="form-row form-row-first validate-required" id="billing_Tipo_de_Documento_field" data-priority="40"><label for="billing_Tipo_de_Documento" class="">Tipo de documento&nbsp;<abbr class="required" title="obligatorio">*</abbr></label><span class="woocommerce-input-wrapper"><select name="billing_Tipo_de_Documento" id="billing_Tipo_de_Documento" class="select select2-hidden-accessible" data-placeholder="" tabindex="-1" aria-hidden="true">
+    <option value="dni">DNI</option><option value="ruc">RUC</option>
+    </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-billing_Tipo_de_Documento-container" role="combobox"><span class="select2-selection__rendered" id="select2-billing_Tipo_de_Documento-container" role="textbox" aria-readonly="true" title="DNI">DNI</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></span></p><p class="form-row form-row-last validate-required" id="billing_Nro__de_Documento_field" data-priority="50"><label for="billing_Nro__de_Documento" class="">Nro Documento&nbsp;<abbr class="required" title="obligatorio">*</abbr></label><span class="woocommerce-input-wrapper"><input type="number" class="input-text " name="billing_Nro__de_Documento" id="billing_Nro__de_Documento" placeholder="" value=""></span></p><p class="form-row form-row-wide validate-required validate-phone" id="billing_phone_field" data-priority="90"><label for="billing_phone" class="">Teléfono&nbsp;<abbr class="required" title="obligatorio">*</abbr></label><span class="woocommerce-input-wrapper"><input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder="" value=""></span></p> </div>
+    </div>
+    <div class="woocommerce-account-fields">
+    <p class="form-row form-row-wide create-account woocommerce-validated">
+    <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+    <input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="createaccount" type="checkbox" name="createaccount" value="1"> <span>¿Crear una cuenta?</span>
+    </label>
+    </p>
+    </div>
+    </div>
+    </section>
+    <section class="wsc-frame slideInLeft wsc-animated slideOutRight" style="display: none;" id="frame2">
+    <div class="wsc-row">
+    <div id="wsc-before-shipping-fields">
+    <p class="form-row address-field update_totals_on_change form-row-wide validate-required" id="billing_country_field" data-priority="70"><label for="billing_country" class="">País / Región&nbsp;<abbr class="required" title="obligatorio">*</abbr></label><span class="woocommerce-input-wrapper"><strong>Perú</strong><input type="hidden" name="billing_country" id="billing_country" value="PE" class="country_to_state" readonly="readonly"></span></p><p class="form-row address-field form-row-wide validate-required" id="billing_address_1_field" data-priority="80"><label for="billing_address_1" class="">Dirección&nbsp;<abbr class="required" title="obligatorio">*</abbr></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="Número de la casa y Nombre de la calle o Avenida" value=""></span></p><p class="form-row address-field form-row-wide validate-required validate-state" id="billing_state_field" data-priority="100"><label for="billing_state" class="">Ciudad&nbsp;<abbr class="required" title="obligatorio">*</abbr></label><span class="woocommerce-input-wrapper"><select name="billing_state" id="billing_state" class="state_select " data-placeholder="Elige una opción…" data-input-classes="" data-label="Ciudad">
+    <option value="">Elige una opción…</option><option value="CAL">El Callao</option><option value="AMA">Amazonas</option><option value="ANC">Ancash</option><option value="APU">Apurímac</option><option value="ARE">Arequipa</option><option value="AYA">Ayacucho</option><option value="CAJ">Cajamarca</option><option value="CUS">Cusco</option><option value="HUV">Huancavelica</option><option value="HUC">Huánuco</option><option value="ICA">Ica</option><option value="JUN">Junín</option><option value="LAL">La Libertad</option><option value="LAM">Lambayeque</option><option value="LIM" selected="selected">Lima</option><option value="LOR">Loreto</option><option value="MDD">Madre de Dios</option><option value="MOQ">Moquegua</option><option value="PAS">Pasco</option><option value="PIU">Piura</option><option value="PUN">Puno</option><option value="SAM">San Martín</option><option value="TAC">Tacna</option><option value="TUM">Tumbes</option><option value="UCA">Ucayali</option></select></span></p><p class="form-row address-field form-row-wide validate-required" id="billing_ciudad_field" data-priority="120"><label for="billing_ciudad" class="">Distrito&nbsp;<abbr class="required" title="obligatorio">*</abbr></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_ciudad" id="billing_ciudad" placeholder="" value=""></span></p></div>
+    <div class="woocommerce-shipping-fields">
+    </div>
+    <div class="woocommerce-additional-fields">
+    <h3>Información adicional</h3>
+    <div class="woocommerce-additional-fields__field-wrapper">
+    <p class="form-row notes form-row-wide" id="order_comments_field" data-priority="10"><label for="order_comments" class="">Mensaje / Comentario&nbsp;<span class="optional">(opcional)</span></label><span class="woocommerce-input-wrapper"><textarea name="order_comments" class="input-text " id="order_comments" placeholder="Notas de tu pedido, p. ej. notas especiales sobre la entrega o dudas." rows="2" cols="5"></textarea></span></p> </div>
+    </div>
+    </div>
+    </section>
+    <section class="wsc-frame wsc-animated slideOutRight" style="display: none;" id="frame3">
+    <div class="wsc-row">
+    <h3 id="order_review_heading">
+    Tu Pedido </h3>
+    <div id="order_review" class="woocommerce-checkout-review-order">
+    <div class="wd-table-wrapper"><table class="shop_table woocommerce-checkout-review-order-table">
+        <thead>
+            <tr>
+                <th class="product-name">Producto</th>
+                <th class="product-total">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr class="cart_item">
+                        <td class="product-name">
+                            Juego De Sala Osnela 3-2<br><strong>Recibelo el 14 diciembre 2023</strong><br>&nbsp;						 <strong class="product-quantity">×&nbsp;1</strong>											</td>
+                        <td class="product-total">
+                            <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">S/</span>1,379.00</bdi></span>					</td>
+                    </tr>
+                        </tbody>
+        <tfoot>
+    
+            <tr class="cart-subtotal">
+                <th>Subtotal</th>
+                <td><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">S/</span>1,379.00</bdi></span></td>
+            </tr>
+    
+                        <tr class="cart-discount coupon-te-lo-llevamos-gratis-hasta-tu-domicilio">
+                    <th></th>
+                    <td>Cupón de envío gratuito</td>
+                </tr>
+            
+            
+                
+                <tr class="woocommerce-shipping-totals shipping">
+        <th>Envío</th>
+        <td data-title="Envío">
+                        <ul id="shipping_method" class="woocommerce-shipping-methods">
+                                        <li>
+                            <input type="hidden" name="shipping_method[0]" data-index="0" id="shipping_method_0_free_shipping28" value="free_shipping:28" class="shipping_method"><label for="shipping_method_0_free_shipping28">Te lo llevamos gratis a tu domicilio</label>					</li>
+                                </ul>
+                            
+            
+                </td>
+    </tr>
+    
+                
+            
+            
+            
+            
+            <tr class="order-total">
+                <th>Total</th>
+                <td><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">S/</span>1,379.00</bdi></span></strong> </td>
+            </tr>
+    
+            
+        </tfoot>
+    </table>
+    
+    </div><div id="payment" class="woocommerce-checkout-payment">
+                <ul class="wc_payment_methods payment_methods methods">
+                <li class="wc_payment_method payment_method_woo-mercado-pago-custom">
+        <input id="payment_method_woo-mercado-pago-custom" type="radio" class="input-radio" name="payment_method" value="woo-mercado-pago-custom" checked="checked" data-order_button_text="">
+    
+        <label for="payment_method_woo-mercado-pago-custom">
+            Paga con tarjetas de débito y crédito <img src="https://plazahome.pe/wp-content/plugins/woocommerce-mercadopago/includes/../assets/images/icons/card.png" alt="Paga con tarjetas de débito y crédito">	</label>
+                <div class="payment_box payment_method_woo-mercado-pago-custom">
+                
+    <div class="mp-checkout-container">
+        <div class="mp-checkout-custom-container">
+            
+                        <div class="mp-wallet-button-container">
+                    <img src="https://plazahome.pe/wp-content/plugins/woocommerce-mercadopago/templates/../assets/images/ml_mp_logo.png">
+                    <div class="mp-wallet-button-title">
+                        <span>Paga con tarjetas guardadas</span>
+                    </div>
+    
+                    <div class="mp-wallet-button-description">
+                        ¿Tienes una cuenta de Mercado Libre? Usa el mismo e-mail y contraseña para pagar más rápido 
+    con Mercado Pago.				</div>
+    
+                    <div class="mp-wallet-button-button">
+                        <button id="mp-wallet-button" onclick="submitWalletButton(event)" value="">
+                            Pagar con Mercado Pago					</button>
+                    </div>
+                </div>
+            
+            <div id="mp-custom-checkout-form-container">
+                <div class="mp-checkout-custom-available-payments">
+                    <div class="mp-checkout-custom-available-payments-header">
+                        <div class="mp-checkout-custom-available-payments-title">
+                            <img src="https://plazahome.pe/wp-content/plugins/woocommerce-mercadopago/templates/../assets/images/purple_card.png" class="mp-icon">
+                            <p class="mp-checkout-custom-available-payments-text">
+                                ¿Con qué tarjeta puedes pagar?						</p>
+                        </div>
+    
+                        <img src="https://plazahome.pe/wp-content/plugins/woocommerce-mercadopago/templates/../assets/images/chefron-down.png" class="mp-checkout-custom-available-payments-collapsible">
+                    </div>
+    
+                    <div class="mp-checkout-custom-available-payments-content">
+                        <payment-methods methods="[{&quot;title&quot;:&quot;Tarjetas de cr\u00e9dito&quot;,&quot;label&quot;:&quot;Hasta 1212 pagos sin tarjeta&quot;,&quot;payment_methods&quot;:[{&quot;src&quot;:&quot;https:\/\/www.mercadopago.com\/org-img\/MP3\/API\/logos\/visa.gif&quot;,&quot;alt&quot;:&quot;Visa&quot;},{&quot;src&quot;:&quot;https:\/\/www.mercadopago.com\/org-img\/MP3\/API\/logos\/amex.gif&quot;,&quot;alt&quot;:&quot;American Express&quot;},{&quot;src&quot;:&quot;https:\/\/www.mercadopago.com\/org-img\/MP3\/API\/logos\/master.gif&quot;,&quot;alt&quot;:&quot;Mastercard&quot;},{&quot;src&quot;:&quot;https:\/\/www.mercadopago.com\/org-img\/MP3\/API\/logos\/diners.gif&quot;,&quot;alt&quot;:&quot;Diners&quot;}]},{&quot;title&quot;:&quot;Tarjetas de d\u00e9bito&quot;,&quot;payment_methods&quot;:[{&quot;src&quot;:&quot;https:\/\/www.mercadopago.com\/org-img\/MP3\/API\/logos\/debvisa.gif&quot;,&quot;alt&quot;:&quot;Visa D\u00e9bito&quot;},{&quot;src&quot;:&quot;https:\/\/www.mercadopago.com\/org-img\/MP3\/API\/logos\/debmaster.gif&quot;,&quot;alt&quot;:&quot;Mastercard D\u00e9bito&quot;}]}]"><div class="mp-payment-methods-container"><div class="mp-payment-method-type-container"><div class="mp-payment-methods-header"><p class="mp-payment-methods-title">Tarjetas de crédito</p><div class="mp-payment-methods-badge"><span class="mp-payment-methods-badge-text">Hasta 1212 pagos sin tarjeta</span></div></div><div class="mp-payment-methods-content"><payment-method-logo src="https://www.mercadopago.com/org-img/MP3/API/logos/visa.gif" alt="Visa"><div class="mp-payment-method-logo-container"><img class="mp-payment-method-logo-image" alt="Visa" src="https://www.mercadopago.com/org-img/MP3/API/logos/visa.gif"></div></payment-method-logo><payment-method-logo src="https://www.mercadopago.com/org-img/MP3/API/logos/amex.gif" alt="American Express"><div class="mp-payment-method-logo-container"><img class="mp-payment-method-logo-image" alt="American Express" src="https://www.mercadopago.com/org-img/MP3/API/logos/amex.gif"></div></payment-method-logo><payment-method-logo src="https://www.mercadopago.com/org-img/MP3/API/logos/master.gif" alt="Mastercard"><div class="mp-payment-method-logo-container"><img class="mp-payment-method-logo-image" alt="Mastercard" src="https://www.mercadopago.com/org-img/MP3/API/logos/master.gif"></div></payment-method-logo><payment-method-logo src="https://www.mercadopago.com/org-img/MP3/API/logos/diners.gif" alt="Diners"><div class="mp-payment-method-logo-container"><img class="mp-payment-method-logo-image" alt="Diners" src="https://www.mercadopago.com/org-img/MP3/API/logos/diners.gif"></div></payment-method-logo></div></div><div class="mp-payment-method-type-container"><div class="mp-payment-methods-header"><p class="mp-payment-methods-title">Tarjetas de débito</p></div><div class="mp-payment-methods-content"><payment-method-logo src="https://www.mercadopago.com/org-img/MP3/API/logos/debvisa.gif" alt="Visa Débito"><div class="mp-payment-method-logo-container"><img class="mp-payment-method-logo-image" alt="Visa Débito" src="https://www.mercadopago.com/org-img/MP3/API/logos/debvisa.gif"></div></payment-method-logo><payment-method-logo src="https://www.mercadopago.com/org-img/MP3/API/logos/debmaster.gif" alt="Mastercard Débito"><div class="mp-payment-method-logo-container"><img class="mp-payment-method-logo-image" alt="Mastercard Débito" src="https://www.mercadopago.com/org-img/MP3/API/logos/debmaster.gif"></div></payment-method-logo></div></div></div></payment-methods>
+    
+                                            <hr>
+                    </div>
+                </div>
+    
+                <div class="mp-checkout-custom-card-form">
+                    <p class="mp-checkout-custom-card-form-title">Completa los datos de tu tarjeta</p>
+                    <div class="mp-checkout-custom-card-row">
+                        <input-label isoptinal="false" message="Número de Tarjeta" for="mp-card-number"><div class="mp-input-label" data-cy="input-label">Número de Tarjeta<b style="color: red;">*</b></div></input-label>
+                        <div class="mp-checkout-custom-card-input" id="form-checkout__cardNumber-container" style="background: no-repeat rgb(255, 255, 255) !important;"><iframe frameborder="0" allowtransparency="true" scrolling="no" height="100%" width="100%" name="cardNumber" data-primary="true" src="https://api-static.mercadopago.com/secure-fields"></iframe></div>
+                        <input-helper isvisible="false" message="Datos obligatorios" input-id="mp-card-number-helper">
+                        <div class="mp-helper" id="mp-card-number-helper" data-cy="helper-container" style="display: none;"><div class="mp-helper-icon">!</div><div class="mp-helper-message" data-cy="helper-message">Datos obligatorios</div></div></input-helper>
+                    </div>
+    
+                    <div class="mp-checkout-custom-card-row" id="mp-card-holder-div">
+                        <input-label message="Nombre del titular como aparece en la tarjeta" isoptinal="false"><div class="mp-input-label" data-cy="input-label">Nombre del titular como aparece en la tarjeta<b style="color: red;">*</b></div></input-label>
+                        <input class="mp-checkout-custom-card-input mp-card-holder-name" placeholder="Ex.: María López" id="form-checkout__cardholderName" name="mp-card-holder-name" data-checkout="cardholderName">
+                        <input-helper isvisible="false" message="Datos obligatorios" input-id="mp-card-holder-name-helper" data-main="mp-card-holder-name">
+                        <div class="mp-helper" id="mp-card-holder-name-helper" data-cy="helper-container" style="display: none;"><div class="mp-helper-icon">!</div><div class="mp-helper-message" data-cy="helper-message">Datos obligatorios</div></div></input-helper>
+                    </div>
+    
+                    <div class="mp-checkout-custom-card-row mp-checkout-custom-dual-column-row">
+                        <div class="mp-checkout-custom-card-column">
+                            <input-label message="Vencimiento" isoptinal="false"><div class="mp-input-label" data-cy="input-label">Vencimiento<b style="color: red;">*</b></div></input-label>
+                            <div id="form-checkout__expirationDate-container" class="mp-checkout-custom-card-input mp-checkout-custom-left-card-input"><iframe frameborder="0" allowtransparency="true" scrolling="no" height="100%" width="100%" name="expirationDate" src="https://api-static.mercadopago.com/secure-fields"></iframe></div>
+                            <input-helper isvisible="false" message="Datos obligatorios" input-id="mp-expiration-date-helper">
+                            <div class="mp-helper" id="mp-expiration-date-helper" data-cy="helper-container" style="display: none;"><div class="mp-helper-icon">!</div><div class="mp-helper-message" data-cy="helper-message">Datos obligatorios</div></div></input-helper>
+                        </div>
+    
+                        <div class="mp-checkout-custom-card-column">
+                            <input-label message="Código de seguridad" isoptinal="false"><div class="mp-input-label" data-cy="input-label">Código de seguridad<b style="color: red;">*</b></div></input-label>
+                            <div id="form-checkout__securityCode-container" class="mp-checkout-custom-card-input"><iframe frameborder="0" allowtransparency="true" scrolling="no" height="100%" width="100%" name="securityCode" src="https://api-static.mercadopago.com/secure-fields"></iframe></div>
+                            <p id="mp-security-code-info" class="mp-checkout-custom-info-text"></p>
+                            <input-helper isvisible="false" message="Datos obligatorios" input-id="mp-security-code-helper">
+                            <div class="mp-helper" id="mp-security-code-helper" data-cy="helper-container" style="display: none;"><div class="mp-helper-icon">!</div><div class="mp-helper-message" data-cy="helper-message">Datos obligatorios</div></div></input-helper>
+                        </div>
+                    </div>
+    
+                    <div id="mp-doc-div" class="mp-checkout-custom-input-document" style="display: none;">
+                        <input-document label-message="Documento del titular" helper-message="Número de documento no válido" input-name="identificationNumber" hidden-id="form-checkout__identificationNumber" input-data-checkout="docNumber" select-id="form-checkout__identificationType" select-name="identificationType" select-data-checkout="docType" flag-error="docNumberError">
+                        <div class="mp-input-document" data-cy="input-document-container"><input-label message="Documento del titular" isoptional="false"><div class="mp-input-label" data-cy="input-label">Documento del titular<b style="color: red;">*</b></div></input-label><div class="mp-input" id="form-checkout__identificationNumber-container"><select class="mp-document-select" name="identificationType" id="form-checkout__identificationType" data-checkout="docType" data-cy="select-document"><option value="DNI">DNI</option><option value="C.E">C.E</option><option value="RUC">RUC</option><option value="Otro">Otro</option></select><div class="mp-vertical-line"></div><input name="identificationNumber" data-checkout="docNumber" data-cy="input-document" class="mp-document" type="text" inputmode="numeric" maxlength="20" placeholder=""></div><input type="hidden" id="form-checkout__identificationNumber" value=""><input-helper isvisible="false" message="Número de documento no válido" input-id="mp-doc-number-helper"><div class="mp-helper" id="mp-doc-number-helper" data-cy="helper-container" style="display: none;"><div class="mp-helper-icon">!</div><div class="mp-helper-message" data-cy="helper-message">Número de documento no válido</div></div></input-helper></div></input-document>
+                    </div>
+                </div>
+    
+                <div id="mp-checkout-custom-installments" class="mp-checkout-custom-installments-display-none" style="display: none;">
+                    <p class="mp-checkout-custom-card-form-title">
+                        Selecciona la cantidad de cuotas				</p>
+    
+                    <div id="mp-checkout-custom-issuers-container" class="mp-checkout-custom-issuers-container">
+                        <div class="mp-checkout-custom-card-row">
+                            <input-label isoptinal="false" message="Banco" for="mp-issuer"><div class="mp-input-label" data-cy="input-label">Banco<b style="color: red;">*</b></div></input-label>
+                        </div>
+                        <div class="mp-input-select-input">
+                            <select id="form-checkout__issuer" class="mp-input-select-select" data-name="issuer" autocomplete="off"><option data-placeholder="" selected="" disabled="">Banco</option></select>
+                        </div>
+                    </div>
+    
+                    <div id="mp-checkout-custom-installments-container" class="mp-checkout-custom-installments-container"></div>
+    
+                    <input-helper isvisible="false" message="Selecciona la cantidad de cuotas" input-id="mp-installments-helper">
+                    <div class="mp-helper" id="mp-installments-helper" data-cy="helper-container" style="display: none;"><div class="mp-helper-icon">!</div><div class="mp-helper-message" data-cy="helper-message">Selecciona la cantidad de cuotas</div></div></input-helper>
+    
+                    <select style="display: none;" data-checkout="installments" name="installments" id="form-checkout__installments" class="mp-input-select-select">
+                    <option data-placeholder="" selected="" disabled="">12 pagos sin tarjeta</option></select>
+    
+                    <div id="mp-checkout-custom-box-input-tax-cft">
+                        <div id="mp-checkout-custom-box-input-tax-tea">
+                            <div id="mp-checkout-custom-tax-tea-text"></div>
+                        </div>
+                        <div id="mp-checkout-custom-tax-cft-text"></div>
+                    </div>
+                </div>
+    
+                <div class="mp-checkout-custom-terms-and-conditions">
+                    <terms-and-conditions description="Al continuar, aceptas nuestros" link-text="Términos y condiciones" link-src="https://www.mercadopago.com.pe/ayuda/terminos-y-politicas_194">
+                    <div class="mp-terms-and-conditions-container" data-cy="terms-and-conditions-container"><span class="mp-terms-and-conditions-text">Al continuar, aceptas nuestros</span><a class="mp-terms-and-conditions-link" href="https://www.mercadopago.com.pe/ayuda/terminos-y-politicas_194" target="blank">Términos y condiciones</a></div></terms-and-conditions>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mercadopago-utilities">
+        <input type="hidden" id="mp-amount" value="1379" name="mercadopago_custom[amount]">
+        <input type="hidden" id="currency_ratio" value="1" name="mercadopago_custom[currency_ratio]">
+        <input type="hidden" id="paymentMethodId" name="mercadopago_custom[paymentMethodId]" value="">
+        <input type="hidden" id="mp_checkout_type" name="mercadopago_custom[checkout_type]" value="custom">
+        <input type="hidden" id="cardExpirationMonth" data-checkout="cardExpirationMonth" value="">
+        <input type="hidden" id="cardExpirationYear" data-checkout="cardExpirationYear" value="">
+        <input type="hidden" id="cardTokenId" name="mercadopago_custom[token]" value="">
+        <input type="hidden" id="cardInstallments" name="mercadopago_custom[installments]" value="">
+        <input type="hidden" id="mpCardSessionId" name="mercadopago_custom[session_id]" value="">
+    </div>
+    
+    <script type="text/javascript">
+        function submitWalletButton(event) {
+            event.preventDefault();
+            jQuery('#mp_checkout_type').val('wallet_button');
+            jQuery('form.checkout, form#order_review').submit();
+        }
+    
+        var availablePayment = document.getElementsByClassName('mp-checkout-custom-available-payments')[0];
+        var collapsible = availablePayment.getElementsByClassName('mp-checkout-custom-available-payments-header')[0];
+    
+        collapsible.addEventListener("click", function() {
+            var icon = collapsible.getElementsByClassName('mp-checkout-custom-available-payments-collapsible')[0];
+            var content = availablePayment.getElementsByClassName('mp-checkout-custom-available-payments-content')[0];
+    
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.style.padding = "0px";
+                icon.src = "https://plazahome.pe/wp-content/plugins/woocommerce-mercadopago/templates/../assets/images/chefron-down.png";
+            } else {
+                let hg = content.scrollHeight + 15 + "px";
+                content.style.setProperty("max-height", hg, "important");
+                content.style.setProperty("padding", "24px 0px 0px", "important");
+    
+                icon.src = "https://plazahome.pe/wp-content/plugins/woocommerce-mercadopago/templates/../assets/images/chefron-up.png";
+            }
+        });
+    </script>
+            </div>
+        </li>
+    <li class="wc_payment_method payment_method_bacs">
+        <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="bacs" data-order_button_text="">
+    
+        <label for="payment_method_bacs">
+            Transferencia Bancaria 	</label>
+                <div class="payment_box payment_method_bacs" style="display:none;">
+                <p>Realiza tu pago directamente en nuestra cuenta bancaria. Por favor, usa el número del pedido como referencia de pago. Tu pedido no se procesa hasta que se haya recibido el importe en nuestra cuenta.</p>
+            </div>
+        </li>
+    <li class="wc_payment_method payment_method_powerpay">
+        <input id="payment_method_powerpay" type="radio" class="input-radio" name="payment_method" value="powerpay" data-order_button_text="">
+    
+        <label for="payment_method_powerpay">
+            Powerpay - Compra ahora, paga después. <img src="https://plazahome.pe/wp-content/plugins/woocommerce-powerpay/assets/images/logo_powerpay.png" alt="Powerpay - Compra ahora, paga después.">	</label>
+                <div class="payment_box payment_method_powerpay" style="display:none;">
+                <div id="powerpay-payment-info" class="informacion-powerpay"><p style="margin-bottom: 8px;line-height: 18px;"><b>Compra ahora, paga despúes desde 0% de intereses.</b><br>Paga después, a tu ritmo con la nueva forma de pago en cuotas Powerpay.</p><p style="margin-bottom: 8px; line-height: 18px;"> Hoy solo pagarás la 1a cuota con tu tarjeta de crédito. Las demás cuotas se cargarán cada 30 días en la misma tarjeta que hayas afiliado.<br></p><mo-checkout product-price="1379.00" mo-client-id="ck_hEtILv5MPasWFMZ_umNcXnbSYSfkrJlS-mRxMc1p5Is" class="hydrated"></mo-checkout></div>		</div>
+        </li>
+            </ul>
+            <div class="form-row place-order">
+            <noscript>
+                Debido a que tu navegador no es compatible con JavaScript o lo tiene desactivado, por favor, asegúrate de hacer clic en el botón <em>Actualizar totales</em> antes de realizar tu pedido. De no hacerlo, se te podría cobrar más de la cantidad indicada arriba.			<br/><button type="submit" class="button alt" name="woocommerce_checkout_update_totals" value="Actualizar totales">Actualizar totales</button>
+            </noscript>
+    
+                <div class="woocommerce-terms-and-conditions-wrapper">
+            <div class="woocommerce-privacy-policy-text"><p>Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web y otros propósitos descritos en nuestra <a href="https://plazahome.pe/politica-privacidad/" class="woocommerce-privacy-policy-link" target="_blank">política de privacidad</a>.</p>
+    </div><div class="woocommerce-terms-and-conditions" style="display: none; max-height: 200px; overflow: auto;"><p>Este sitio web es operado por&nbsp;<strong>PlazaHome.pe</strong>. En todo el sitio, los términos “nosotros”, “nos” y “nuestro” se refieren a&nbsp;<strong>PlazaHome.pe</strong>. PlazaHome.pe ofrece este sitio web, incluyendo toda la información, herramientas y servicios disponibles para ti en este sitio, el usuario, está condicionado a la aceptación de todos los términos, condiciones, políticas y notificaciones aquí establecidos.</p>
+    <p>Al visitar nuestro sitio y/o comprar algo de nosotros, participas en nuestro “Servicio” y aceptas los siguientes términos y condiciones (“Términos de Servicio”, “Términos”), incluídos todos los términos y condiciones adicionales y las polítias a las que se hace referencia en el presente documento y/o disponible a través de hipervínculos. Estas Condiciones de Servicio se aplican a todos los usuarios del sitio, incluyendo si limitación a usuarios que sean navegadores, proveedores, clientes, comerciantes, y/o colaboradores de contenido.</p>
+    <p>Por favor, lee estos Términos de Servicio cuidadosamente antes de acceder o utilizar nuestro sitio web. Al acceder o utilizar cualquier parte del sitio, estás aceptando los Términos de Servicio. Si no estás de acuerdo con todos los términos y condiciones de este acuerdo, entonces no deberías acceder a la página web o usar cualquiera de los servicios. Si las Términos de Servicio son considerados una oferta, la aceptación está expresamente limitada a estos Términos de Servicio.</p>
+    <p>Cualquier función nueva o herramienta que se añadan a la tienda actual, también estarán sujetas a los Términos de Servicio. Puedes revisar la versión actualizada de los Términos de Servicio, en cualquier momento en esta página. Nos reservamos el derecho de actualizar, cambiar o reemplazar cualquier parte de los Términos de Servicio mediante la publicación de actualizaciones y/o cambios en nuestro sitio web. Es tu responsabilidad chequear esta página periódicamente para verificar cambios. Tu uso contínuo o el acceso al sitio web después de la publicación de cualquier cambio constituye la aceptación de dichos cambios.</p>
+    <p><a href="https://plazahome.pe/terminos-y-condiciones/" target="_blank" rel="noopener noreferrer">Continuar leyendo…</a></p>
+    </div>
+                        <p class="form-row validate-required">
+                    <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+                    <input type="checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="terms" id="terms">
+                        <span class="woocommerce-terms-and-conditions-checkbox-text">He leído y estoy de acuerdo con los <a href="https://plazahome.pe/informacion-general-terminos-y-condiciones/" class="woocommerce-terms-and-conditions-link" target="_blank">términos y condiciones</a> de la web</span>&nbsp;<abbr class="required" title="obligatorio">*</abbr>
+                    </label>
+                    <input type="hidden" name="terms-field" value="1">
+                </p>
+                </div>
+        
+            
+            <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Realizar el pedido" data-value="Realizar el pedido">Realizar el pedido</button>
+            
+            <input type="hidden" id="woocommerce-process-checkout-nonce" name="woocommerce-process-checkout-nonce" value="b60f84d583"><input type="hidden" name="_wp_http_referer" value="/?wc-ajax=update_order_review&amp;elementor_page_id=33">	</div>
+    </div>
+    
+    </div>
+    </div>
+    </section>
+    <button class="button" id="wsc-main" style="">Siguiente →</button>
+    <input id="MPHiddenInputToken" name="MPHiddenInputToken" type="hidden"><input id="MPHiddenInputPaymentMethod" name="MPHiddenInputPaymentMethod" type="hidden"><input id="MPHiddenInputProcessingMode" name="MPHiddenInputProcessingMode" type="hidden" value="aggregator"><input id="MPHiddenInputMerchantAccountId" name="MPHiddenInputMerchantAccountId" type="hidden"></form>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
