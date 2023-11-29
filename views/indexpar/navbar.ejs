@@ -129,7 +129,7 @@
         </div>
     </nav>
 
-    <form class=" mb-4">
+    <form class=" mb-4" action="/p1c/search" method="GET">
         <div x-data="{ open: false }" class="relative ml-3 flex">
             <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
             <button @click.prevent="open = !open "
@@ -144,15 +144,15 @@
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
                     <li>
                         <button type="button"
-                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mockups</button>
+                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">categoria </button>
                     </li>
                     <li>
                         <button type="button"
-                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Templates</button>
+                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">categoria2</button>
                     </li>
                     <li>
                         <button type="button"
-                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Design</button>
+                            class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">categoria4</button>
                     </li>
                     <li>
                         <button type="button"
@@ -162,6 +162,7 @@
             </div>
             <div class="relative w-full">
                 <input type="search" id="search-dropdown"
+                name="q"
                     class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
                     placeholder="Search Mockups, Logos, Design Templates..." required>
                 <button type="submit"
