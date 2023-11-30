@@ -29,7 +29,19 @@ router.get('/search', function (req, res, next) {
   getProducts(req, res, next, searchTerm);
 });
 
-module.exports = router;
+router.get('/catsalas', function (req, res, next) {
+  // Realiza la búsqueda en la base de datos solo para la categoría "catsalas"
+  const query = 'SELECT productos.nombre AS nombre_producto, foto ,precio,categorias.nombre FROM productos JOIN categorias ON productos.id_categoria = categorias.id_category WHERE categorias.nombre = "cat salas"  ORDER BY id_product ASC';
+  dbConn.query(query, function (err, rows) {
+    if (err) {
+      req.flash('error', err);
+      res.render('catsala', { data: '' });
+    } else {
+      res.render('catsala', { data: rows });
+    }
+  });
+});
+
 
 
 
