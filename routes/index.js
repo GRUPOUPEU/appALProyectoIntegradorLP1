@@ -43,6 +43,11 @@ router.get('/', function (req, res, next) {
         res.render('catoficina');
       });
 
+      /* GET login catoficina page. */
+      router.get('/catdormitorio', function (req, res, next) {
+        res.render('catdormitorio');
+      });
+
       /* GET producto page. */
       router.get('/productos', function (req, res, next) {
         res.render('productos');

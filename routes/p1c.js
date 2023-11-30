@@ -67,6 +67,18 @@ router.get('/catsalas', function (req, res, next) {
   });
 });
 
+router.get('/catcomedor', function (req, res, next) {
+  // Realiza la búsqueda en la base de datos solo para la categoría "catsalas"
+  const query = 'SELECT productos.nombre AS nombre_producto, foto ,precio,id_product,categorias.nombre FROM productos JOIN categorias ON productos.id_categoria = categorias.id_category WHERE categorias.nombre = "cat comedor"  ORDER BY id_product ASC';
+  dbConn.query(query, function (err, rows) {
+    if (err) {
+      req.flash('error', err);
+      res.render('catcomedor', { data: '' });
+    } else {
+      res.render('catcomedor', { data: rows });
+    }
+  });
+});
 
 
 
