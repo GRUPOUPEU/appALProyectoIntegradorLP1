@@ -1,0 +1,297 @@
+<%- include('indexpar/navbar.ejs'); %>
+    <div>
+        <ul data-te-stepper-init
+            class="relative m-0 flex list-none justify-between overflow-hidden p-0 transition-[height] duration-200 ease-in-out">
+            <!--First item-->
+            <li data-te-stepper-step-ref data-te-stepper-step-active class="w-[4.5rem] flex-auto">
+                <div data-te-stepper-head-ref
+                    class="flex cursor-pointer items-center pl-2 leading-[1.3rem] no-underline after:ml-2 after:h-px after:w-full after:flex-1 after:bg-[#e0e0e0] after:content-[''] hover:bg-[#f9f9f9] focus:outline-none dark:after:bg-neutral-600 dark:hover:bg-[#3b3b3b]">
+                    <span data-te-stepper-head-icon-ref
+                        class="my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-[#ebedef] text-sm font-medium text-[#40464f]">
+                        1
+                    </span>
+                    <span data-te-stepper-head-text-ref
+                        class="font-medium text-neutral-500 after:flex after:text-[0.8rem] after:content-[data-content] dark:text-neutral-300">
+                        Carrito
+                    </span>
+                </div>
+                <div data-te-stepper-content-ref class="absolute w-full p-4 transition-all duration-500 ease-in-out">
+                    <div class=" container border-2 border-gray-600 rounded-lg mx-6 py-6">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                                <thead class="ltr:text-left rtl:text-right">
+                                    <tr>
+                                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                            Nombre
+                                        </th>
+                                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                            Fecha De Venta
+                                        </th>
+                                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                            Objeto
+                                        </th>
+                                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                            Saldo
+                                        </th>
+                                        <th class="px-4 py-2"></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                            John Doe
+                                        </td>
+                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">Web Developer</td>
+                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">$120,000</td>
+                                        <td class="whitespace-nowrap px-4 py-2">
+                                            <a href="#"
+                                                class="inline-block rounded bg-black px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                                                Seleccionar
+                                            </a>
+                                            <a href="#"
+                                                class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-400">
+                                                Eliminar
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                            Jane Doe
+                                        </td>
+                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">04/11/1980</td>
+                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">Web Designer</td>
+                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">$100,000</td>
+                                        <td class="whitespace-nowrap px-4 py-2">
+                                            <a href="#"
+                                                class="inline-block rounded bg-black px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                                                Seleccionar
+                                            </a>
+                                            <a href="#"
+                                                class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-400">
+                                                Eliminar
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                            Gary Barlow
+                                        </td>
+                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">Singer</td>
+                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">$20,000</td>
+                                        <td class="whitespace-nowrap px-4 py-2">
+                                            <a href="#"
+                                                class="inline-block rounded bg-black px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                                                Seleccionar
+                                            </a>
+                                            <a href="#"
+                                                class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-400">
+                                                Eliminar
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+            </li>
+
+            <!--Second item-->
+            <li data-te-stepper-step-ref class="w-[4.5rem] flex-auto">
+                <div data-te-stepper-head-ref
+                    class="flex cursor-pointer items-center leading-[1.3rem] no-underline before:mr-2 before:h-px before:w-full before:flex-1 before:bg-[#e0e0e0] before:content-[''] after:ml-2 after:h-px after:w-full after:flex-1 after:bg-[#e0e0e0] after:content-[''] hover:bg-[#f9f9f9] focus:outline-none dark:before:bg-neutral-600 dark:after:bg-neutral-600 dark:hover:bg-[#3b3b3b]">
+                    <span data-te-stepper-head-icon-ref
+                        class="my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-[#ebedef] text-sm font-medium text-[#40464f]">
+                        2
+                    </span>
+                    <span data-te-stepper-head-text-ref
+                        class="text-neutral-500 after:flex after:text-[0.8rem] after:content-[data-content] dark:text-neutral-300">
+                        Formulario
+                    </span>
+                </div>
+                <div data-te-stepper-content-ref
+                    class="absolute left-0 w-full translate-x-[150%] p-4 transition-all duration-500 ease-in-out">
+
+                    <div>
+                        <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+                            <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Account settings
+                            </h2>
+
+                            <form>
+                                <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                                    <div>
+                                        <label class="text-gray-700 dark:text-gray-200" for="username">Username</label>
+                                        <input id="username" type="text"
+                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                    </div>
+                                    <div>
+                                        <form class="max-w-sm mx-auto">
+                                            <label for="email"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                                email</label>
+                                            <input type="email" id="email" aria-describedby="helper-text-explanation"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                placeholder="name@flowbite.com">
+
+                                            <p id="helper-text-explanation"
+                                                class="mt-2 text-sm text-gray-500 dark:text-gray-400">We’ll never share
+                                                your
+                                                details. Read our <a href="#"
+                                                    class="font-medium text-blue-600 hover:underline dark:text-blue-500">Privacy
+                                                    Policy</a>.</p>
+                                        </form>
+                                    </div>
+
+                                    <div>
+                                        <label class="text-gray-700 dark:text-gray-200" for="password">Password</label>
+                                        <input id="password" type="password"
+                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                    </div>
+
+                                    <div>
+                                        <label class="text-gray-700 dark:text-gray-200"
+                                            for="passwordConfirmation">Password Confirmation</label>
+                                        <input id="passwordConfirmation" type="password"
+                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                    </div>
+
+                                    <div>
+                                        <form class="max-w-sm mx-6">
+                                            <label for="countries"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                                                your
+                                                country</label>
+                                            <select id="countries"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                                                <option>United States</option>
+                                                <option>Canada</option>
+                                                <option>France</option>
+                                                <option>Germany</option>
+                                            </select>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                                <div class="flex justify-end mt-6">
+                                    <button type="submit"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+
+                </div>
+            </li>
+
+            <!--Third item-->
+            <li data-te-stepper-step-ref class="w-[4.5rem] flex-auto">
+                <div data-te-stepper-head-ref
+                    class="flex cursor-pointer items-center pr-2 leading-[1.3rem] no-underline before:mr-2 before:h-px before:w-full before:flex-1 before:bg-[#e0e0e0] before:content-[''] hover:bg-[#f9f9f9] focus:outline-none dark:before:bg-neutral-600 dark:after:bg-neutral-600 dark:hover:bg-[#3b3b3b]">
+                    <span data-te-stepper-head-icon-ref
+                        class="my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-[#ebedef] text-sm font-medium text-[#40464f]">
+                        3
+                    </span>
+                    <span data-te-stepper-head-text-ref
+                        class="text-neutral-500 after:flex after:text-[0.8rem] after:content-[data-content] dark:text-neutral-300">
+                        Pago
+                    </span>
+                </div>
+                <div data-te-stepper-content-ref
+                    class="absolute left-0 w-full translate-x-[150%] p-4 transition-all duration-500 ease-in-out">
+                    <div class=" container my-6 mx-6 grid grid-cols-2">
+                        <div class="mx-4">
+                            <article
+                                class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+                                <img
+                                    src="https://img.freepik.com/fotos-premium/mano-d-tarjeta-credito-pagos-linea-banca-linea-transacciones-pago-violeta_132477-317.jpg">
+
+                                <a href="#">
+                                    <h3 class="mt-0.5 text-lg font-medium text-gray-900">
+                                        Pago Por Tarjeta
+                                    </h3>
+                                </a>
+                                <button type="button"
+                                    class="inline-block rounded-full bg-orange-300 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-500 shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-slate-100 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]">
+                                    Continuar
+                                </button>
+                            </article>
+                        </div>
+                        <div class="mx-4">
+
+                            <article
+                                class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+                                <img src="/images/delivery.png">
+                                <a href="#">
+                                    <h3 class="mt-0.5 text-lg font-medium text-gray-900">
+                                        Envio Por delivery.
+                                    </h3>
+                                </a>
+                                <button type="button"
+                                    class="inline-block rounded-full bg-orange-300 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-500 shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-slate-100 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]">
+                                    Continuar
+                                </button>
+                            </article>
+                        </div>
+                    </div>
+                    <div class=" flex justify-center container mx-2 my-4">
+                        <div>
+                            <h2 class="sr-only">Steps</h2>
+
+                            <div>
+                                <div class="overflow-hidden rounded-full bg-gray-200">
+                                    <div class="h-2 w-1/2 rounded-full bg-blue-500"></div>
+                                </div>
+
+                                <ol class="mt-4 grid grid-cols-3 text-sm font-medium text-gray-500">
+                                    <li class="flex items-center justify-start text-blue-600 sm:gap-1.5">
+                                        <span class="hidden sm:inline"> Details </span>
+
+                                        <svg class="h-6 w-6 sm:h-5 sm:w-5" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                                        </svg>
+                                    </li>
+
+                                    <li class="flex items-center justify-center text-blue-600 sm:gap-1.5">
+                                        <span class="hidden sm:inline"> Address </span>
+
+                                        <svg class="h-6 w-6 sm:h-5 sm:w-5" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </li>
+
+                                    <li class="flex items-center justify-end sm:gap-1.5">
+                                        <span class="hidden sm:inline"> Payment </span>
+
+                                        <svg class="h-6 w-6 sm:h-5 sm:w-5" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                        </svg>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+</body>
+
+</html>

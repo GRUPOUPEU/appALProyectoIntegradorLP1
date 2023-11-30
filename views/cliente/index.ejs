@@ -4,11 +4,11 @@
         <div class="grid mb-4 pb-10 px-8 mx-4 rounded-3xl bg-gray-50 border-4 border-green-400">
 
             <div class="py-5">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-5">
                     <!--Boton nuevo   -->
                     <div class="space-x-8">
-                        <a href="categories/add"
-                            class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">
+                        <a href="categories/add py-5"
+                            class="bg-slate-500 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">
                             <i class="fa-solid fa-plus"></i> Nuevo
                         </a>
                     </div>
@@ -16,12 +16,14 @@
                     <!--Tabla lista de items   -->
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="w-full divide-y divide-gray-200 table-auto">
-                            <thead class="bg-indigo-500 text-white">
+                            <thead class="bg-orange-500 text-white">
                                 <tr class="text-left text-xs font-bold  uppercase">
                                     <td scope="col" class="px-6 py-3">ID</td>
                                     <td scope="col" class="px-6 py-3">Nombre </td>
                                     <td scope="col" class="px-6 py-3 text-center">apellido</td>
                                     <td scope="col" class="px-6 py-3 text-center">gmail</td>
+                                    <td scope="col" class="px-6 py-3 text-center">celular</td>
+                                    <td scope="col" class="px-6 py-3 text-center">dni</td>
                                     <td scope="col" class="px-6 py-3 text-center">opciones</td>
                                 </tr>
                             </thead>
@@ -44,16 +46,34 @@
                                         <td class="px-6 py-4 dark:text-gray-400">
                                             <%= data[i].gmail%>
                                         </td>
-                                        <td class="px-6 py-4 text-right">
-                                            <a href="../cliente/edit/<%=data[i].id_customer%>"
-                                                class="bg-green-600 text-white rounded px-2 py-2 hover:bg-green-400"
-                                                text-xs>
-                                                <i class="fa-solid fa-pen-to-square"></i>Editar</a>
-                                            <a href="../cliente/delete/<%=data[i].id_customer%>"
-                                                onclick="return confirm('Are You sure?')"
-                                                class="bg-red-600 text-white rounded px-2 py-2 hover:bg-red-400"
-                                                text-xs>
-                                                <i class="fa-solid fa-trash"></i>Eliminar</a>
+                                        <td class="px-6 py-4 dark:text-gray-400">
+                                            <%= data[i].celular%>
+                                        </td>
+                                        <td class="px-6 py-4 dark:text-gray-400">
+                                            <%= data[i].dni%>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                            <div class="flex space-x-4">
+                                                <a href="../producto/edit/<%=data[i].id_customer%>" class="text-blue-500 hover:text-blue-600">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                    </svg>
+                                                    <p>Edit</p>
+                                                </a>
+                                                <a href="../producto/delete/<%=data[i].id_customer%>" class="text-red-500 hover:text-red-600">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1 ml-3"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                    </svg>
+                                                    <p>Delete</p>
+                                                </a>
+                                            </div>
+                                        </td>     
                                     </tr>
                                     <% } %>
                             </tbody>
